@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ToDo App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.6/angular-material.min.css"
+              integrity="sha256-hZ2Snb61DiO9W2a+0etyjVvDKjhsVQTG1vJ6e4fJxic=" crossorigin="anonymous" />
+    </head>
+    <body ng-app="todo" ng-cloak>
+        
+        <ui-view></ui-view>
+
+        <!-- Libraries !-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"
+                integrity="sha256-zBy1l2WBAh2vPF8rnjFMUXujsfkKjya0Jy5j6yKj0+Q=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-cookies.min.js"
+                integrity="sha256-tVvnbUkwgprwLlmcKyx6/dz+KifqSSJ41vvUGvL72QM=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"
+                integrity="sha256-FMocp8pp1WruAK6GtjNDtuGAALCt/dCsVtw7oSjvPX0=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"
+                integrity="sha256-1XBp/KwjxhvrtZiQ+ecAScAyLPe4OStn2lMX0vxTq9U=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-aria.min.js"
+                integrity="sha256-9per5naK1wbvJeCJC4Xr3gjiycTRg9Jno/eSvh12+ck=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-messages.min.js"
+                integrity="sha256-2pwnp0gYfK+zdy02nYSL8GNlfcfo+oNVb0k6pTO1ebQ=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.6/angular-material.min.js"
+                integrity="sha256-eCWPVwZKBYy07AwAEPmaFYPEromZc4DegU6k4sKSoK0=" crossorigin="anonymous"></script>
+        
+        <!-- AngularJS !-->
+        <script src="services/taskService.js"></script>
+        <script src="services/userService.js"></script>
+        <script src="controllers/home.js"></script>
+        <script src="controllers/login.js"></script>
+        <script src="controllers/signup.js"></script>
+        <script src="app.js"></script>
+        
+    </body>
+</html>

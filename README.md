@@ -10,7 +10,7 @@ The key motivation for building a simple ToDo app here in an open source reposit
 * Django [test](https://docs.djangoproject.com/en/2.0/topics/testing/overview/) (*unit*)
 * AngularJS [test](http://andyshora.com/unit-testing-best-practices-angularjs.html) (*unit* + *UI*)
 * [Expresso](https://developer.android.com/training/testing/espresso/index.html) (*Android UI*)
-* Android [JUnit](https://developer.android.com/training/testing/junit-runner.html) Runner (*unit*)
+* [Roboelectric](http://robolectric.org/) (*Android unit*)
 * [Tavern](https://taverntesting.github.io/) (*REST API*)
 
 ## NOTES
