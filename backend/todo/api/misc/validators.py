@@ -22,7 +22,8 @@ signupSchema = {
             'type': 'string'
         },
         'email': {
-            'type': 'string'
+            'type': 'string',
+            'format': 'email',
         },
         'password': {
             'type': 'string'
@@ -40,7 +41,8 @@ loginSchema = {
     'type': 'object',
     'properties': {
         'email': {
-            'type': 'string'
+            'type': 'string',
+            'format': 'email',
         },
         'password': {
             'type': 'string'
