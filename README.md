@@ -4,13 +4,10 @@ The key motivation for building a simple ToDo app here in an open source reposit
 ## Technology stack
 * [Django](https://www.djangoproject.com/) (*Backend*)
 * [AngularJS](https://angularjs.org/) (*Frontend*)
-* [Android](https://www.android.com/) (*Mobile App*)
 
 ## Testing stack
 * Django [test](https://docs.djangoproject.com/en/2.0/topics/testing/overview/) (*unit*)
 * AngularJS [test](http://andyshora.com/unit-testing-best-practices-angularjs.html) (*unit* + *UI*)
-* [Expresso](https://developer.android.com/training/testing/espresso/index.html) (*Android UI*)
-* [Roboelectric](http://robolectric.org/) (*Android unit*)
 * [Tavern](https://taverntesting.github.io/) (*REST API*)
 
 ## NOTES
