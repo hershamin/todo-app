@@ -19,3 +19,40 @@ def dbtype(request):
         return json_response({'name': 'test'})
     else:
         return json_response({'name': 'prod'})
+
+
+# Sign up
+@csrf_exempt
+@method('POST')
+@content_type('application/json')
+def signup(request):
+    return bad_request('signup')
+
+
+# Log in
+@csrf_exempt
+@method('POST')
+@content_type('application/json')
+def login(request):
+    return bad_request('login')
+
+
+# Logout
+@csrf_exempt
+@method('POST')
+def logout(request):
+    return bad_request('logout')
+
+
+# Create task
+@csrf_exempt
+@method('GET')
+def get_tasks(request):
+    return bad_request('get tasks')
+
+
+# Delete task
+@csrf_exempt
+@method('DELETE')
+def delete_task(request):
+    return bad_request('delete task')

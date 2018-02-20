@@ -12,4 +12,67 @@ def validateJson(object, schema):
 
 
 # Schemas
-##
+signupSchema = {
+    'type': 'object',
+    'properties': {
+        'first_name': {
+            'type': 'string'
+        },
+        'last_name': {
+            'type': 'string'
+        },
+        'email': {
+            'type': 'string'
+        },
+        'password': {
+            'type': 'string'
+        },
+    },
+    'required': [
+        'first_name',
+        'last_name',
+        'email',
+        'password',
+    ]
+}
+
+loginSchema = {
+    'type': 'object',
+    'properties': {
+        'email': {
+            'type': 'string'
+        },
+        'password': {
+            'type': 'string'
+        },
+    },
+    'required': [
+        'email',
+        'password',
+    ]
+}
+
+createTaskSchema = {
+    'type': 'object',
+    'properties': {
+        'title': {
+            'type': 'string'
+        },
+        'description': {
+            'type': 'string'
+        },
+        'priority': {
+            'type': 'string',
+            'enum': [
+                'Low',
+                'Medium',
+                'High',
+            ]
+        },
+    },
+    'required': [
+        'title',
+        'description',
+        'priority',
+    ]
+}
