@@ -1,0 +1,56 @@
+test_name: Signup, Login, Logout
+
+stages:
+  - name: Make sure we have the right Database (Must be test)
+    request:
+      url: http://localhost:8080/api/v1/db
+      method: GET
+    response:
+      status_code: 200
+      body:
+        name: test
+
+  - name: Signup user
+    request:
+      url: http://localhost:8080/api/v1/user/signup
+      method: POST
+      json:
+        first_name: 'first'
+        last_name: 'last'
+        email: 'info@example.com'
+        password: 'password'
+    response:
+      status_code: 200
+      body:
+        first_name: 'first'
+        last_name: 'last'
+        email: 'info@example.com'
+      save:
+        body:
+          login_token: login_token
+
+  - name: Login user
+    request:
+      url: http://localhost:8080/api/v1/user/login
+      method: POST
+      json:
+        email: 'info@example.com'
+        password: 'password'
+    response:
+      status_code: 200
+      body:
+        first_name: 'first'
+        last_name: 'last'
+        email: 'info@example.com'
+      save:
+        body:
+          login_token: login_token
+
+  - name: Logout user
+    request:
+      url: http://localhost:8080/api/v1/user/logout
+      method: POST
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200

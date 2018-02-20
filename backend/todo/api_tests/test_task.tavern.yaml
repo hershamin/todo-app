@@ -1,0 +1,123 @@
+test_name: Create ToDo, Set priority, Complete, Delete
+
+stages:
+  - name: Make sure we have the right Database (Must be test)
+    request:
+      url: http://localhost:8080/api/v1/db
+      method: GET
+    response:
+      status_code: 200
+      body:
+        name: test
+
+  - name: Login user
+    request:
+      url: http://localhost:8080/api/v1/user/login
+      method: POST
+      json:
+        email: 'info@example.com'
+        password: 'password'
+    response:
+      status_code: 200
+      body:
+        first_name: 'first'
+        last_name: 'last'
+        email: 'info@example.com'
+      save:
+        body:
+          login_token: login_token
+
+  - name: Create Task
+    request:
+      url: http://localhost:8080/api/v1/task/create
+      method: POST
+      headers:
+        Authorization: "Token {login_token}"
+      json:
+        title: 'title'
+        description: 'desc'
+        priority: 'Low'
+    response:
+      status_code: 200
+
+  - name: Get Tasks (1)
+    request:
+      url: http://localhost:8080/api/v1/task
+      method: GET
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200
+      body:
+        - title: 'title'
+          description: 'desc'
+          priority: 'Low'
+          status: 'Open'
+          id: 1
+
+  - name: Set priority to High
+    request:
+      url: http://localhost:8080/api/v1/task/priority/1/High
+      method: PUT
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200
+
+  - name: Get Tasks (2)
+    request:
+      url: http://localhost:8080/api/v1/task
+      method: GET
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200
+      body:
+        - title: 'title'
+          description: 'desc'
+          priority: 'High'
+          status: 'Open'
+          id: 1
+
+  - name: Complete Task
+    request:
+      url: http://localhost:8080/api/v1/task/complete/1
+      method: PUT
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200
+
+  - name: Get Tasks (3)
+    request:
+      url: http://localhost:8080/api/v1/task
+      method: GET
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200
+      body:
+        - title: 'title'
+          description: 'desc'
+          priority: 'High'
+          status: 'Done'
+          id: 1
+
+  - name: Delete Task
+    request:
+      url: http://localhost:8080/api/v1/task/delete/1
+      method: DELETE
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200
+
+  - name: Get Tasks (4)
+    request:
+      url: http://localhost:8080/api/v1/task
+      method: GET
+      headers:
+        Authorization: "Token {login_token}"
+    response:
+      status_code: 200
+      body: []

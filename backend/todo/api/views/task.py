@@ -21,10 +21,7 @@ def get_tasks(request):
     taskService = TaskService()
     tasks = taskService.get_tasks(token)
     # Response
-    if not tasks:
-        return bad_request('Unable to comply')
-    else:
-        return json_response(tasks)
+    return json_response(tasks)
 
 
 # Create task

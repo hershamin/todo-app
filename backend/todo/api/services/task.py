@@ -28,7 +28,7 @@ class TaskService():
             task = Task.objects.get(task_id=task_id, user=user)
         except Exception:
             return False
-        task.completed = True
+        task.task_status = TaskStatus.DONE
         task.save()
         return True
 
@@ -69,7 +69,6 @@ class TaskService():
                 'title': task.title,
                 'description': task.description,
                 'priority': to_external(TaskPriority, task.task_priority),
-                'completed': task.completed,
                 'status': to_external(TaskStatus, task.task_status),
                 'id': task.task_id
             }

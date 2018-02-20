@@ -19,7 +19,6 @@ class TaskServiceTestCase(TestCase):
         self.assertEqual(task.get('title'), 'title')
         self.assertEqual(task.get('description'), 'desc')
         self.assertEqual(task.get('priority'), 'Low')
-        self.assertEqual(task.get('completed'), False)
         self.assertEqual(task.get('status'), 'Open')
         self.assertIsNotNone(task.get('id'))
 
@@ -37,7 +36,7 @@ class TaskServiceTestCase(TestCase):
         self.assertEqual(len(tasks), 1)
         task = tasks.__getitem__(0)
         self.assertEqual(task.get('id'), taskId)
-        self.assertEqual(task.get('completed'), True)
+        self.assertEqual(task.get('status'), 'Done')
 
     def test_complete_task_unknown_user(self):
         taskId = self.taskService.create_task(self.token, 'title', 'desc', 'Medium')
@@ -47,7 +46,7 @@ class TaskServiceTestCase(TestCase):
         self.assertEqual(len(tasks), 1)
         task = tasks.__getitem__(0)
         self.assertEqual(task.get('id'), taskId)
-        self.assertEqual(task.get('completed'), False)
+        self.assertEqual(task.get('status'), 'Open')
 
     def test_complete_task_wrong_id(self):
         taskId = self.taskService.create_task(self.token, 'title', 'desc', 'High')
@@ -57,7 +56,7 @@ class TaskServiceTestCase(TestCase):
         self.assertEqual(len(tasks), 1)
         task = tasks.__getitem__(0)
         self.assertEqual(task.get('id'), taskId)
-        self.assertEqual(task.get('completed'), False)
+        self.assertEqual(task.get('status'), 'Open')
 
     def test_delete_task(self):
         taskId = self.taskService.create_task(self.token, 'title', 'desc', 'High')

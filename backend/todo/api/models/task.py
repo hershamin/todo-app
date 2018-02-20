@@ -17,7 +17,6 @@ class Task(models.Model):
 
     task_priority = models.CharField(max_length=2, choices=TaskPriority.CHOICES, default=TaskPriority.LOW)
     task_status = models.CharField(max_length=2, choices=TaskStatus.CHOICES, default=TaskStatus.OPEN)
-    completed = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(editable=False, default=django.utils.timezone.now)
     updated_at = models.DateTimeField(editable=False, default=django.utils.timezone.now)
