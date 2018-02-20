@@ -3,7 +3,7 @@ backend/**/*.pyc
 backend/**/todoDB.sqlite3
 backend/**/todo-testDB.sqlite3
 backend/**/.idea/**
-backend/**/migrations/00**
+backend/**/migrations/00*
 backend/.pytest_cache/**
 
 ## Webapp

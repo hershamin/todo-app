@@ -1,4 +1,5 @@
 import cjson as json
+from django.contrib import admin
 from django.http import HttpResponse
 from Crypto.Cipher import AES
 import base64
@@ -53,3 +54,21 @@ class AESCipher(object):
         enc = base64.b64decode(enc)
         cipher = AES.new(self.key, AES.MODE_CBC, self.iv)
         return self.unpad(cipher.decrypt(enc))
+
+
+# Read Only inline Admin
+class ReadonlyTabularInline(admin.TabularInline):
+    can_delete = False
+    extra = 0
+    editable_fields = []
+
+    def get_readonly_fields(self, request, obj=None):
+        fields = []
+        for field in self.model._meta.get_fields():
+            if (not field.name == 'id'):
+                if (field.name not in self.editable_fields):
+                    fields.append(field.name)
+        return fields
+
+    def has_add_permission(self, request):
+        return False

@@ -18,8 +18,10 @@ This will serve as the backend built using the *Django* framework. It will be re
 * Apply migrations to DB `python manage.py migrate`
 * Run Server `python manage.py runserver 0:8080` to listen on port *8080*
 * **NOTE:** Scripts are included for convenience.
+* To view database tables, you may create superuser by running `python manage.py createsuperuser`. After that, you can login from [admin](http://localhost:8080/admin).
 
 ## Run Tests
+* When running tests, in one terminal window, run `runTestPrep.sh` and then run `runTests.sh` in the other window.
 * *Option 1*: Run `py.test` from *backend/*
 * *Option 2*: Run `tavern-ci --stdout todo/test_api.tavern.yaml`
 * **NOTE:** Scripts are included for convenience.
