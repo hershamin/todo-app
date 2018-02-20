@@ -4,3 +4,4 @@ pycrypto==2.6.1
 jsonschema==2.6.0
 tavern==0.3.0
 pytest==3.4.0
+django-cors-headers==2.1.0
