@@ -1,0 +1,31 @@
+<style>
+    .loginBox {
+        max-width: 90%;
+        width: 500px;
+    }
+</style>
+
+<div layout="column" layout-align="center center" layout-fill>
+    <div class="md-whiteframe-z1 loginBox" layout="column">
+        <md-toolbar>
+            <h2 class="md-toolbar-tools">
+                <span>ToDo App</span>
+            </h2>
+        </md-toolbar>
+        <md-content class="md-padding" layout="column">
+            <md-input-container style="margin-top: 30px;">
+                <label>Email</label>
+                <input type="email" ng-model="email"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="password" ng-model="password"/>
+            </md-input-container>
+            <div layout="row" layout-align="center center" style="padding-top: 20px;">
+                <md-button class="md-raised md-primary" ng-click="login()">Login</md-button>
+                <div flex></div>
+                <md-button ui-sref="signup" md-no-ink>Create Account</md-button>
+            </div>
+        </md-content>
+    </div>
+</div>
