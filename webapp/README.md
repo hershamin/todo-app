@@ -10,16 +10,18 @@ This will serve as a the web frontend using the *AngularJS* fraework. It will be
 * **NPM**: For managing NodeJS packages [Download Link](https://www.npmjs.com/get-npm)
 * **NodeEnv:** NodeJS virtual environment, will be run inside python virtualenv [Download Link](https://ekalinin.github.io/nodeenv/)
 
-## Instalation
+## Installation
 * Create Virtual Environment: `mkvirtualenv TODO`
 * Choose Virtual Environment: `workon TODO`
 * Install *nodeenv*: `pip install nodeenv==0.6.5`
 * Run: `nodeenv -p`
+* Install *selenium*: `pip install selenium==3.9.0`
 
 ## Run Sever
 * Using *SimpleHTTPServer* run `python -m SimpleHTTPServer 8000`, which will serve the site on [http://localhost:8000/](http://localhost:8000).
 * **NOTE:** Backend must be running in order to use this site. Scripts are included for convenience purposes.
 
 ## Run Tests
+* When running tests, ine one terminal window, run `runTestPrep.sh` from *backend* directory and then run `runTests.sh` from *webapp* directory.
 * Manually, you can run *karma* unit tests using: `node_modules/karma-cli/bin/karma start karma.conf.js` from the *webapp* directory.
 * **NOTE:** Scripts are included for convenience purposes
