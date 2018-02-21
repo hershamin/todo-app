@@ -21,4 +21,5 @@ This will serve as a the web frontend using the *AngularJS* fraework. It will be
 * **NOTE:** Backend must be running in order to use this site. Scripts are included for convenience purposes.
 
 ## Run Tests
-* *TBD*
+* Manually, you can run *karma* unit tests using: `node_modules/karma-cli/bin/karma start karma.conf.js` from the *webapp* directory.
+* **NOTE:** Scripts are included for convenience purposes
