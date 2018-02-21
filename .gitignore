@@ -7,7 +7,6 @@ backend/**/migrations/00*
 backend/.pytest_cache/**
 
 ## Webapp
-#
+webapp/node_modules/**
+webapp/package-lock.json
 
-## Android
-#

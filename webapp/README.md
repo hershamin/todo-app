@@ -6,10 +6,15 @@ This will serve as a the web frontend using the *AngularJS* fraework. It will be
 * **Pip:** package manager for python [Download Link](https://pip.pypa.io/en/stable/installing/)
 * **Virtual Env:** Isolated environment to safely manage dependencies for python packages [Download Link](https://virtualenv.pypa.io/en/stable/installation/)
 * **Virtual Env Wrapper:** Wrapper around *Virtual Environment* [Download Link](https://virtualenvwrapper.readthedocs.io/en/latest/install.html)
+* **NodeJS 8.9.4 LTS:** For running unit tests [Download Link](https://nodejs.org/en/)
+* **NPM**: For managing NodeJS packages [Download Link](https://www.npmjs.com/get-npm)
+* **NodeEnv:** NodeJS virtual environment, will be run inside python virtualenv [Download Link](https://ekalinin.github.io/nodeenv/)
 
 ## Instalation
 * Create Virtual Environment: `mkvirtualenv TODO`
 * Choose Virtual Environment: `workon TODO`
+* Install *nodeenv*: `pip install nodeenv==0.6.5`
+* Run: `nodeenv -p`
 
 ## Run Sever
 * Using *SimpleHTTPServer* run `python -m SimpleHTTPServer 8000`, which will serve the site on [http://localhost:8000/](http://localhost:8000).
