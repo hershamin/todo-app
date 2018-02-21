@@ -34,7 +34,7 @@ assert 'signup' in driver.current_url
 elem = driver.find_element_by_css_selector('input[ng-model="lastName"]')
 elem.send_keys('Last Name')
 elem = driver.find_element_by_css_selector('input[ng-model="email"]')
-elem.send_keys('info@example.com')
+elem.send_keys('info@info.com')
 elem = driver.find_element_by_css_selector('input[ng-model="password"]')
 elem.send_keys('password')
 # Click create account
@@ -53,7 +53,7 @@ driver.find_element_by_css_selector('a[ui-sref="signup"]')
 assert 'login' in driver.current_url
 # Enter info
 elem = driver.find_element_by_css_selector('input[ng-model="email"]')
-elem.send_keys('info@example.com')
+elem.send_keys('info@info.com')
 elem = driver.find_element_by_css_selector('input[ng-model="password"]')
 elem.send_keys('password')
 # Click Sign in
