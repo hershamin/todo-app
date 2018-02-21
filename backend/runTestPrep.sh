@@ -1,5 +1,6 @@
 #!/bin/sh
 
+rm todo/todo-testDB.sqlite3
 export DJANGO_HOST="test"
 python todo/manage.py makemigrations api
 python todo/manage.py makemigrations

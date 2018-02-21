@@ -9,6 +9,7 @@ This will serve as a the web frontend using the *AngularJS* fraework. It will be
 * **NodeJS 8.9.4 LTS:** For running unit tests [Download Link](https://nodejs.org/en/)
 * **NPM**: For managing NodeJS packages [Download Link](https://www.npmjs.com/get-npm)
 * **NodeEnv:** NodeJS virtual environment, will be run inside python virtualenv [Download Link](https://ekalinin.github.io/nodeenv/)
+* **ChromeDriver:** [Download Link](https://chromedriver.storage.googleapis.com/index.html?path=2.35/)
 
 ## Installation
 * Create Virtual Environment: `mkvirtualenv TODO`
@@ -22,6 +23,6 @@ This will serve as a the web frontend using the *AngularJS* fraework. It will be
 * **NOTE:** Backend must be running in order to use this site. Scripts are included for convenience purposes.
 
 ## Run Tests
-* When running tests, ine one terminal window, run `runTestPrep.sh` from *backend* directory and then run `runTests.sh` from *webapp* directory.
+* When running tests, in one terminal window, run `runTestPrep.sh` from *backend* directory, then run `runServer.sh` from *webapp* directory, and then run `runTests.sh` from *webapp* directory.
 * Manually, you can run *karma* unit tests using: `node_modules/karma-cli/bin/karma start karma.conf.js` from the *webapp* directory.
 * **NOTE:** Scripts are included for convenience purposes
