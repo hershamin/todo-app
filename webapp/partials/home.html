@@ -1,7 +1,73 @@
+<style>
+    .taskBox {
+        margin: 15px;
+        padding: 15px;
+    }
+    md-checkbox.md-checked[disabled].red .md-icon {
+        background-color: rgba(255, 0, 0, 0.26);
+    }
+</style>
 <md-toolbar layout="row">
     <h2 class="md-toolbar-tools">
         <span>Tasks for {{user.first_name}} {{user.last_name}}</span>
+        <div flex></div>
+        <md-button class="md-icon-button md-light" ng-click="logout()">
+            <md-icon class="material-icons">exit_to_app</md-icon>
+        </md-button>
     </h2>
-    <div flex></div>
-    <md-button class="md-raised md-light" ng-click="logout()">Logout</md-button>
 </md-toolbar>
+<md-button class="md-fab md-primary md-hue-2 md-fab-bottom-right" aria-label="Add a task" ng-click="addDialog()">
+  <md-icon class="material-icons">add</md-icon>
+</md-button>
+<md-list>
+    <md-list-item ng-repeat="task in tasks" class="taskBox md-whiteframe-24dp md-no-proxy" ng-style="taskCss(task)">
+        <h3>{{task.title}}</h3>
+        <p style="margin-left: 15px;">{{task.description}}</p>
+        <div flex></div>
+        <md-select ng-model="task.priority" style="margin-right: 20px;" ng-disabled="task.status == 'Done'" ng-change="setTaskPriority(task.id, task.priority)">
+            <md-option ng-repeat="priorityOption in priorityOptions" value="{{priorityOption}}">{{priorityOption}}</md-option>
+        </md-select>
+        <md-checkbox ng-model="task.status" ng-true-value="'Done'" ng-false-value="'Open'" class="red" ng-disabled="task.status == 'Done'" ng-change="completeTask(task.id)"></md-checkbox>
+        <md-button class="md-icon-button md-light" ng-click="deleteTask(task.id, task.title)">
+            <md-icon class="material-icons">delete</md-icon>
+        </md-button>
+    </md-list-item>
+</md-list>
+
+<!-- Add task dialog -->
+<div style="visibility: hidden">
+    <div class="md-dialog-container" id="addTaskDialog">
+        <md-dialog aria-label="Add Task">
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>Create Task</h2>
+                    <div flex></div>
+                    <md-button class="md-icon-button md-light" ng-click="reloadPage()">
+                        <md-icon class="material-icons">close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-dialog-content>
+                <div class="md-dialog-content" layout="column">
+                    <md-input-container>
+                        <label>Title</label>
+                        <input ng-model="currentTask.title" type="text">
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Description</label>
+                        <input ng-model="currentTask.description" type="text">
+                    </md-input-container>
+                </div>
+            </md-dialog-content>
+            <md-dialog-actions layout="row">
+                <md-select ng-model="currentTask.priority">
+                    <md-option ng-repeat="priorityOption in priorityOptions" value="{{priorityOption}}">{{priorityOption}}</md-option>
+                </md-select>
+                <div flex></div>
+                <md-button ng-click="saveTask()" ng-disabled="!currentTask.title && !currentTask.description && !currentTask.priority">
+                    <md-icon class="material-icons">checkmark</md-icon>
+                </md-button>
+            </md-dialog-actions>
+        </md-dialog>
+    </div>
+</div>
